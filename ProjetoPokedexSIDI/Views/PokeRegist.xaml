@@ -1,0 +1,148 @@
+﻿<Page
+    x:Class="ProjetoPokedexSIDI.PokeRegist"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjetoPokedexSIDI.ViewModel"
+    xmlns:data="using:ProjetoPokedexSIDI.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+    <Grid Background ="black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="143*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <StackPanel Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <StackPanel Height="200" Background="red" BorderThickness="15,15,15,0" CornerRadius="50">
+                <Image Source="/Assets/RegistImages/logo.png" Width="500" Height="176"/>
+            </StackPanel>
+
+            <StackPanel Height="675" Background="red" Width="1189" Margin="-705,0,0,0" BorderThickness="15,15,15,15" CornerRadius="50" HorizontalAlignment="Center">
+                <StackPanel Width="386" Height="576" Margin="500,14,0,0">
+                    <StackPanel>
+                        <TextBlock Margin="15,50,0,0" Foreground="Black" FontSize="22" FontFamily="Kristen ITC" FontWeight="Bold">PokeID</TextBlock>
+                        <TextBox HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="{Binding TextIdBoxStr, Mode=TwoWay}" VerticalAlignment="Top" Height="42" Width="369" FontSize="20" CornerRadius="20" FontFamily="Kristen ITC" FontWeight="Bold" BorderBrush="Black" Background="White" Foreground="Black" BorderThickness="5,5,5,5" PlaceholderText="PokeID"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock Margin="15,50,0,0" Foreground="Black" FontSize="22" FontFamily="Kristen ITC" FontWeight="Bold"><Run Text="Poke"/><Run Text="Name"/></TextBlock>
+                        <TextBox HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" Text="{Binding TextNameBox, Mode=TwoWay}" VerticalAlignment="Top" Height="42" Width="369" FontSize="20" CornerRadius="20" FontFamily="Kristen ITC" FontWeight="Bold" BorderBrush="Black" Background="White" Foreground="Black" BorderThickness="5,5,5,5" PlaceholderText="PokeName"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock Margin="15,50,0,0" Foreground="Black" FontSize="22" FontFamily="Kristen ITC" FontWeight="Bold" Text="PokeType"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="10,5,0,0" Text="{Binding TextTypeBox, Mode=TwoWay}"  SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Top" Height="42" Width="369" FontSize="20" CornerRadius="20" FontFamily="Kristen ITC" FontWeight="Bold" BorderBrush="Black" Background="White" Foreground="Black" BorderThickness="5,5,5,5"  PlaceholderText="PokeType">
+                            <x:String>Bug</x:String>
+                            <x:String>Dark</x:String>
+                            <x:String>Dragon</x:String>
+                            <x:String>Electric</x:String>
+                            <x:String>Fairy</x:String>
+                            <x:String>Fighting</x:String>
+                            <x:String>Fire</x:String>
+                            <x:String>Flying</x:String>
+                            <x:String>Ghost</x:String>
+                            <x:String>Grass</x:String>
+                            <x:String>Ground</x:String>
+                            <x:String>Ice</x:String>
+                            <x:String>Normal</x:String>
+                            <x:String>Poison</x:String>
+                            <x:String>Psychic</x:String>
+                            <x:String>Rock</x:String>
+                            <x:String>Steel</x:String>
+                            <x:String>Water</x:String>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" BorderThickness="0,21,0,0" Height="194">
+                        <StackPanel Width="372"  Height="62" Margin="10,-90,0,20" BorderThickness="5,5,5,5" BorderBrush="Black" Background="#FF4B9F57">
+                            <TextBlock  Text="{Binding PokeStatus}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="2,9,0,0" Foreground="Black" FontWeight="Bold"/>
+                        </StackPanel>
+
+                        <Button Background="White" Width="97" Height="91" BorderBrush="Black" BorderThickness="5,5,5,5" CornerRadius="100" Command="{Binding ClickCommandPokemon}" HorizontalAlignment="Right" Margin="-96,73,0,0" VerticalAlignment="Center">
+                            <Image Source="/Assets/RegistImages/icon.png" Margin="-10,-10,-10,-10"/>
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Width="505" Margin="0,-550,500,0" Height="594">
+                    <Image Source="/Assets/RegistImages/poke 09.png" Width="377" Height="335" Margin="106,0,0,0"/>
+                    <Image Source="/Assets/RegistImages/poke 05.png" Width="275" Height="246" Margin="-212,0,0,0"/>
+                    <Image Source="/Assets/RegistImages/poke 01.png" Width="215" Height="195" Margin="283,-195,0,0"/>
+
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Background="gray" Height="674" Margin="1181,-678,0,0" BorderThickness="15,15,15,15" CornerRadius="50" HorizontalAlignment="Center" Width="702" BorderBrush="Black">
+                <StackPanel CornerRadius="20" Height="527" Width="535" Margin="0,33,0,0" Background="White" BorderThickness="5,5,5,5" BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <GridView Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="1" ItemsSource="{Binding Pokemons}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="data:pokemonDetalhes">
+                                <StackPanel>
+                                    <Button>
+                                        <StackPanel Background="White" Margin="10" BorderThickness="2,2,2,2" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="20">
+                                            <StackPanel>
+                                                <Image Height="350" Width="350" Source="{Binding sprite, Mode=TwoWay}"/>
+                                            </StackPanel>
+                                            <StackPanel Background="White" Orientation="Horizontal" Width="350" VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="10" BorderBrush="Black" BorderThickness="2,2,2,2">
+                                                <TextBlock Margin="3" Text="ID: " Foreground="Black" FontSize="16" FontWeight="Bold" />
+                                                <TextBlock Margin="3" Text="{Binding id, Mode=TwoWay}" HorizontalAlignment="Center" TextAlignment="Center" Foreground="Black" FontSize="16" FontWeight="Bold" />
+                                            </StackPanel>
+                                            <StackPanel Background="White" Orientation="Horizontal" Width="350" VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="10" BorderBrush="Black" BorderThickness="2,2,2,2">
+                                                <TextBlock Margin="3" Text="Name: " Foreground="Black" FontSize="16" FontWeight="Bold" />
+                                                <TextBlock Margin="3" Text="{Binding name, Mode=TwoWay}" HorizontalAlignment="Center" TextAlignment="Center" Foreground="Black" FontSize="16" FontWeight="Bold" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="200" Background="red" BorderThickness="15,0,15,15" CornerRadius="50" Margin="0,0,0,0">
+                <StackPanel>
+                    <Button x:Name="NextScreenButtonRegist" CornerRadius="10" Width="155" Height="61" Background="White" Content="Tela inicial" Margin="140,50,100,0" FontSize="18" Click="NextScreenButtonRegist_Click" BorderThickness="5,5,5,5" BorderBrush="Black" Foreground="Black" FontWeight="Bold"/>    
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Assets/RegistImages/pikachu 02.png" Width="100" Height="100" Margin="200,-15,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Source="/Assets/RegistImages/pikachu 01.png" Width="105" Height="105" Margin="500,-15,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="200,0,0,0">
+                    <ProgressRing
+                    x:Name="Loading"                
+                    Visibility="{Binding IsVisible}"                 
+                    IsActive="True"                
+                    Width="60"
+                    Height="60"
+                    Grid.ColumnSpan="5"
+                    Grid.RowSpan="6"
+                    Foreground="BlanchedAlmond"                
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="20,50,0,0"
+                    />
+                </StackPanel>
+                                
+                
+                
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
